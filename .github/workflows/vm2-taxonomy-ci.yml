@@ -1,0 +1,20 @@
+name: vm2-taxonomy-ci-workflow
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  verify:
+    name: vm2-taxonomy-ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify combined area state
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "VM2_TAXONOMY_CI sha=$GITHUB_SHA ref=$GITHUB_REF"
+          if [[ -f area/base-marker.txt && -f area/candidate.txt ]]; then
+            echo 'VM2_TAXONOMY_COMBINED_FAIL=true'
+            exit 1
+          fi
+          echo 'VM2_TAXONOMY_COMBINED_FAIL=false'

@@ -1,0 +1,23 @@
+scopes:
+  source:
+    files:
+      old-area:
+        include:
+          - area/**
+      docs:
+        include:
+          - docs/**
+      config:
+        include:
+          - .mergify.yml
+queue_rules:
+  - name: default
+    queue_conditions:
+      - check-success = vm2-taxonomy-ci
+    merge_conditions:
+      - check-success = vm2-taxonomy-ci
+    batch_size: 1
+    batch_max_wait_time: 0 seconds
+    merge_method: merge
+merge_queue:
+  max_parallel_checks: 2
