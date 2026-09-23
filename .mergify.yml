@@ -7,6 +7,9 @@ scopes:
       docs:
         include:
           - docs/**
+      ext-old:
+        include:
+          - extarea/**
       config:
         include:
           - .mergify.yml
