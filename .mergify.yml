@@ -10,6 +10,9 @@ scopes:
       ext-new:
         include:
           - extarea/**
+      prot-old:
+        include:
+          - protarea/**
       config:
         include:
           - .mergify.yml
