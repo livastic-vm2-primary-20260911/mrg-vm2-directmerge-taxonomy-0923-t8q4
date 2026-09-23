@@ -7,7 +7,7 @@ scopes:
       docs:
         include:
           - docs/**
-      ext-old:
+      ext-new:
         include:
           - extarea/**
       config:
